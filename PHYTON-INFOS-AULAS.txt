@@ -1,2 +1,4 @@
 plotly.com - site de codigos 
 mit App Inventor - Criar app
+https://www.asciiart.eu/
+correlaçao pearson

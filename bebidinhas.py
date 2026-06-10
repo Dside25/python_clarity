@@ -137,26 +137,56 @@ print(df["NivelConsumo"].value_counts())
 # PAIS COM MAIOR CONSUMO TOTAL
 # ========================
 
-
+maiorConsumo = df.loc[df["TotalBebidas"].idxmax()]
+print("\n=== MAIOR CONSUMO ===")
+print(maiorConsumo)
 
 # ========================
 # ACIMA DA MEDIA EM TUDO
 # ========================
 
+mediaCerveja = df["Cerveja"].mean()
+mediaDestilados = df["Destilados"].mean()
+mediaVinho = df["Vinho"].mean()
+print("\n=== ACIMA DA MEDIA EM TODAS AS BEBIDAS ===")
+resultado = df[
+    (df["Cerveja"] > mediaCerveja) &
+    (df["Destilados"] > mediaDestilados) &
+    (df["Vinho"] > mediaVinho) 
+]
 
-
+print(
+    resultado[["Pais", "Cerveja", "Destilados", "Vinho"]]
+)
 # ========================
 # CORRELAÇÃO
 # ========================
 
+print("\n=== MAIOR CORRELAÇÃO ===")
 
+print(
+    df[
+        [
+            "Cerveja",
+            "Destilados",
+            "Vinho",
+            "LitrosAlcool"
+        ]
+    ].corr()
+)
 
 # ========================
 # ORDENAÇÃO
 # ========================
 
+print("\n=== TOP 20 CONSUMO TOTAL ===")
 
+print(
+    df.sort_values(by="TotalBebidas", ascending=False)[["Pais", "TotalBebidas"]].head(20)
+)
 
 # ========================
 # SALVAR CSV
 # ========================
+
+df.to_csv("drinks_processados.csv", index=False)
