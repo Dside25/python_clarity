@@ -4,7 +4,7 @@ print("#####    Iniciando o Jogo!   #####")
 
 
 random = randint(0, 100)
-chute = 0
+chute = 01
 chances = 10
 
 # < MENOR
