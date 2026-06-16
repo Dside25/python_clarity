@@ -3,3 +3,4 @@ mit App Inventor - Criar app
 https://www.asciiart.eu/
 correlaçao pearson
 notebooklm.google
+https://reactbits.dev/
